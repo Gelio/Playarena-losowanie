@@ -1,6 +1,11 @@
 function initial()
 {
-    alert("Test");
+    $("#losuj").click(losuj);
+}
+
+function losuj()
+{
+
 }
 
 window.onload = initial;

@@ -1,3 +1,45 @@
-#main {
+#logo {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+}
 
+#main {
+    width: 78%;
+    padding-left: 1%;
+    padding-right: 1%;
+    border-left: solid 3px grey;
+    border-right: solid 3px grey;
+    margin: auto;
+    overflow: auto;
+}
+
+#leftInitialTeams {
+    width: 44%;
+    float: left;
+    padding-right: 1%;
+    border-right: solid 2px grey;
+}
+
+#textareaAlignment button, #textareaAlignment textarea {
+        vertical-align: middle;
+        display: inline-block;
+}
+
+#rightResults {
+    float: left;
+    padding-left: 1%;
+    width: 53%;
+
+}
+
+p {
+    text-indent: 15px;
+}
+
+
+@media(min-width: 480px) {
+    #logo {
+        width: 800px;
+    }
 }
