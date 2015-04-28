@@ -1,6 +1,7 @@
 var druzyny;
 var step = 1;
 var losowanie = false;
+var teams = [];
 
 function blad(tresc)
 {
@@ -48,6 +49,52 @@ function losuj()
     $("#chooseSingle").prop("disabled", true);
     if(!$("#chooseSingle").is(":checked"))
         $("#losuj").prop("disabled", true);
+
+    for(var j=1; j < 17; j++) {
+        var aktualnaLista = [];
+        teams[j] = 0;
+        //console.log("losuje "+j);
+        if (j % 2 == 1) // liderzy
+        {
+            //console.log("to lider");
+            for (var i = 0; i < 16; i += 2) {
+                if (!druzyny[i].picked) {
+                    aktualnaLista.push(i);
+                    //console.log("dodaje " + druzyny[i].name);
+                }
+            }
+        }
+        else
+        {
+            //console.log("to wice lider");
+            for (var i = 1; i < 16; i += 2) {
+                if (!druzyny[i].picked && teams[j-1] != (i - 1))
+                {
+                    aktualnaLista.push(i);
+                    //console.log("dodaje "+druzyny[i].name);
+                }
+            }
+        }
+        if(aktualnaLista.length == 0)
+            break;
+        //console.log("lista zawiera "+aktualnaLista.length);
+        var wylosowana = Math.floor(Math.random() * aktualnaLista.length);
+        teams[j] = aktualnaLista[wylosowana];
+        //console.log("wylosowalem "+wylosowana+", czyli "+druzyny[aktualnaLista[wylosowana]].name);
+        druzyny[aktualnaLista[wylosowana]].picked = true;
+    }
+
+    if(teams[16] == 0)
+    {
+        alert("zamiana");
+        teams[16] = teams[2];
+        for(var i=1; i < 16; i+= 2) {
+            if(!druzyny[i].picked){
+                teams[2] = i;
+                break;
+            }
+        }
+    }
     losujStep();
 
     return true;
@@ -55,33 +102,9 @@ function losuj()
 
 function losujStep()
 {
-    var aktualnaLista = [];
-    //alert("a");
-    if(step%2 == 1) // liderzy
-    {
-        //alert("b");
-        for(var i=0; i < 16; i+=2)
-        {
-            if(!druzyny[i].picked)
-                aktualnaLista.push(i);
-        }
-    }
-    else
-    {
-        //alert("c");
-        for(var i=1; i < 16; i+=2)
-        {
-            if(!druzyny[i].picked && $("#team".concat(step-1)).text() != druzyny[i-1].name)
-                aktualnaLista.push(i);
-        }
-    }
-    //alert("d");
-    var wylosowana = Math.floor(Math.random()*aktualnaLista.length);
-    //alert(wylosowana);
-    $("#team".concat(step)).addClass("druzynaPicked").text(druzyny[aktualnaLista[wylosowana]].name);
-    druzyny[aktualnaLista[wylosowana]].picked = true;
+    $("#team".concat(step)).addClass("druzynaPicked").text(druzyny[teams[step]].name);
 
-    if(step == 17)
+    if(step == 16)
         $("#losuj").prop("disabled", true);
 
     step++;
