@@ -15,17 +15,29 @@
 
 <div id="main">
     <div id="leftInitialTeams">
-        Nazwy drużyn:<br />
+        <h1>Drużyny</h1>
         <div id="textareaAlignment">
-            <textarea id="inputs" cols="50" rows="16"></textarea> <button id="losuj">Losuj</button>
+            <textarea id="inputs" cols="50" rows="16"></textarea> <button id="losuj">Losuj</button><br />
+            <input type="checkbox" id="chooseSingle"/><label for="chooseSingle">Losuj pojedynczo</label><br />
+            <button id="reset">Resetuj</button>
         </div>
         <h2>Zasady dotyczące wpisywania drużyn</h2>
-        <p>Należy wpisać grupy alfabetycznie, najpierw lidera, a linię niżej (robiąc odstęp "enterem") wicelidera.</p>
+        <p>Należy wpisać grupy alfabetycznie, najpierw lidera, a linię niżej (robiąc odstęp "enterem") wicelidera. Drużyny powinny być tuż pod sobą.</p>
     </div>
 
 
     <div id="rightResults">
-        a
+        <div id="results">
+            <h1>Wyniki</h1>
+            <span class="druzyna druzynaLeft" id="team1">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team2">?</span><br />
+            <span class="druzyna druzynaLeft" id="team3">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team4">?</span><br />
+            <span class="druzyna druzynaLeft" id="team5">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team6">?</span><br />
+            <span class="druzyna druzynaLeft" id="team7">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team8">?</span><br />
+            <span class="druzyna druzynaLeft" id="team9">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team10">?</span><br />
+            <span class="druzyna druzynaLeft" id="team11">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team12">?</span><br />
+            <span class="druzyna druzynaLeft" id="team13">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team14">?</span><br />
+            <span class="druzyna druzynaLeft" id="team15">?</span><span class="druzyna dash"> - </span><span class="druzyna druzynaRight" id="team16">?</span><br />
+        </div>
     </div>
 </div>
 </body>
